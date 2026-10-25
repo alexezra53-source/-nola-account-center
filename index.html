@@ -2,355 +2,428 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff">
-<title>Nola Account Center</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0876c9">
+  <title>Prize &amp; Account Center</title>
 
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  background:#f4f6fa;
-  color:#172033;
-}
-header{
-  min-height:68px;
-  background:#fff;
-  padding:15px 20px;
-  border-bottom:1px solid #e5e7eb;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.brand{font-size:19px;font-weight:750}
-.menu{
-  font-size:25px;
-  background:none;
-  border:0;
-  cursor:pointer;
-}
-.layout{display:flex;min-height:calc(100vh - 68px)}
-nav{
-  width:205px;
-  flex-shrink:0;
-  background:#fff;
-  border-right:1px solid #e5e7eb;
-  padding:16px;
-}
-nav button{
-  display:block;
-  width:100%;
-  text-align:left;
-  border:0;
-  background:transparent;
-  padding:13px;
-  margin-bottom:5px;
-  border-radius:8px;
-  font-size:15px;
-  color:#334155;
-  cursor:pointer;
-}
-nav button.active,nav button:hover{
-  background:#eaf1ff;
-  color:#215bd8;
-}
-main{
-  flex:1;
-  min-width:0;
-  padding:25px;
-  max-width:1000px;
-  margin:0 auto;
-}
-h1{font-size:26px;margin:0 0 8px}
-h2{font-size:21px}
-h3{margin-top:0}
-.muted{color:#64748b;font-size:14px;line-height:1.6}
-.balance{
-  background:#193b80;
-  color:#fff;
-  border-radius:14px;
-  padding:24px;
-  margin:20px 0;
-}
-.balance small{opacity:.9;line-height:1.6}
-.amount{font-size:34px;font-weight:750;margin:12px 0}
-.card{
-  background:#fff;
-  border:1px solid #e4e8ef;
-  border-radius:14px;
-  padding:22px;
-  margin:18px 0;
-  box-shadow:0 2px 8px #17203308;
-}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-button{cursor:pointer}
-.primary,.secondary{
-  border:0;
-  border-radius:9px;
-  padding:12px 17px;
-  font-size:15px;
-}
-.primary{background:#245fdb;color:white}
-.secondary{background:#eaf0ff;color:#1c4fb8}
-label{display:block;font-weight:600;margin:15px 0 7px}
-input,select{
-  width:100%;
-  padding:12px;
-  border:1px solid #cbd5e1;
-  border-radius:8px;
-  font-size:16px;
-  background:#fff;
-}
-form .primary{margin-top:16px}
-.notice{
-  background:#fff7df;
-  color:#76530a;
-  padding:13px;
-  border-radius:8px;
-  font-size:14px;
-  line-height:1.6;
-  margin:14px 0;
-}
-.row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  padding:14px 0;
-  border-bottom:1px solid #edf0f4;
-}
-.row:last-child{border:0}
-[hidden]{display:none!important}
-footer{
-  text-align:center;
-  color:#64748b;
-  font-size:12px;
-  padding:25px 15px;
-}
-button:focus-visible,input:focus-visible,select:focus-visible{
-  outline:2px solid #245fdb;
-  outline-offset:2px;
-}
-@media(max-width:650px){
-  .layout{display:block}
-  nav{
-    width:100%;
-    display:flex;
-    overflow-x:auto;
-    gap:5px;
-    padding:9px;
-    border-right:0;
-    border-bottom:1px solid #e5e7eb;
-  }
-  nav button{
-    white-space:nowrap;
-    width:auto;
-    flex-shrink:0;
-    margin:0;
-    padding:11px;
-  }
-  main{padding:16px}
-  .card{padding:17px}
-  .amount{font-size:30px}
-}
-</style>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f7fb;
+      color: #243449;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #0876c9;
+      color: white;
+      padding: 22px 18px;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .brand {
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      margin-top: 6px;
+      opacity: 0.9;
+    }
+
+    .menu {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      background: white;
+      overflow-x: auto;
+      border-bottom: 1px solid #e1e8ef;
+    }
+
+    .menu button {
+      flex: 1;
+      min-width: 85px;
+      padding: 12px 10px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: #46576a;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu button.active {
+      background: #e7f3ff;
+      color: #0876c9;
+    }
+
+    main {
+      width: 100%;
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px 35px;
+    }
+
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
+    .page-title {
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .balance-card {
+      background: linear-gradient(135deg, #0876c9, #0759a6);
+      color: white;
+      border-radius: 16px;
+      padding: 25px 22px;
+      box-shadow: 0 5px 16px rgba(8, 70, 130, 0.13);
+      margin-bottom: 22px;
+    }
+
+    .balance-label {
+      font-size: 15px;
+      opacity: 0.95;
+    }
+
+    .balance-amount {
+      font-size: clamp(30px, 8vw, 40px);
+      margin-top: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .balance-note {
+      font-size: 12px;
+      margin-top: 12px;
+      opacity: 0.85;
+    }
+
+    .section-heading {
+      font-size: 18px;
+      margin: 25px 0 13px;
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .action-card,
+    .content-card {
+      background: white;
+      border: 1px solid #e3eaf1;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(20, 45, 70, 0.04);
+    }
+
+    .action-card h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .action-card p,
+    .content-card p {
+      color: #617185;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .action-card button,
+    .primary-button {
+      margin-top: 16px;
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 15px;
+      background: #0876c9;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .action-card button:hover,
+    .primary-button:hover {
+      background: #075da0;
+    }
+
+    .deposit-card {
+      background: white;
+      border: 1px solid #e3eaf1;
+      border-left: 4px solid #15945a;
+      border-radius: 12px;
+      padding: 24px 20px;
+    }
+
+    .deposit-card h2,
+    .withdraw-card h2 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .deposit-card p,
+    .withdraw-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #536579;
+    }
+
+    .withdraw-card {
+      background: white;
+      border: 1px solid #e3eaf1;
+      border-radius: 12px;
+      padding: 24px 20px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 7px 11px;
+      border-radius: 20px;
+      background: #fff3d8;
+      color: #855900;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .transaction-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 0;
+      border-bottom: 1px solid #e8edf2;
+    }
+
+    .transaction-row:last-child {
+      border-bottom: none;
+    }
+
+    .transaction-row strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .transaction-row small {
+      color: #718096;
+      font-size: 12px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 25px 8px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: #8290a0;
+      font-size: 12px;
+      padding: 20px 15px 30px;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 20px 16px;
+      }
+
+      main {
+        margin-top: 20px;
+      }
+
+      .action-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .action-card {
+        padding: 18px;
+      }
+
+      .menu {
+        gap: 2px;
+        padding: 8px 5px;
+      }
+
+      .menu button {
+        min-width: 72px;
+        padding: 11px 7px;
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header>
-  <div class="brand">Nola Account Center</div>
-  <button class="menu" aria-label="Go to overview"
-    onclick="showPage('overview')">⌂</button>
-</header>
+  <header>
+    <div class="header-inner">
+      <div class="brand">Prize &amp; Account Center</div>
+      <div class="subtitle">Account dashboard</div>
+    </div>
+  </header>
 
-<div class="layout">
-  <nav aria-label="Main navigation">
+  <nav class="menu" aria-label="Main navigation">
     <button class="active" data-page="overview"
       onclick="showPage('overview')">Overview</button>
+
     <button data-page="deposit"
       onclick="showPage('deposit')">Deposit</button>
+
     <button data-page="withdraw"
       onclick="showPage('withdraw')">Withdraw</button>
+
     <button data-page="transactions"
       onclick="showPage('transactions')">Transactions</button>
   </nav>
 
   <main>
     <!-- OVERVIEW -->
-    <section id="overview">
-      <h1>Account Overview</h1>
-      <p class="muted">Welcome to Nola Account Center.</p>
+    <section id="overview" class="page-section active">
+      <h1 class="page-title">Overview</h1>
 
-      <div class="balance">
-        <small>Illustrative balance · Not verified funds</small>
-        <div class="amount">$50,000.00</div>
-        <small>Sample account preview</small>
+      <div class="balance-card">
+        <p class="balance-label">Main Balance</p>
+        <h2 class="balance-amount">$50,000.00</h2>
+        <p class="balance-note">Prize &amp; Account Center</p>
+      </div>
 
-        <div class="actions">
-          <button class="primary"
-            onclick="showPage('deposit')">Deposit</button>
-          <button class="secondary"
-            onclick="showPage('withdraw')">Withdraw</button>
+      <h2 class="section-heading">Quick Actions</h2>
+
+      <div class="action-grid">
+        <div class="action-card">
+          <h3>Deposit</h3>
+          <p>Check the current status of deposit services.</p>
+          <button onclick="showPage('deposit')">
+            View Deposit
+          </button>
+        </div>
+
+        <div class="action-card">
+          <h3>Withdraw</h3>
+          <p>View withdrawal information and guidance.</p>
+          <button onclick="showPage('withdraw')">
+            View Withdraw
+          </button>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Quick Access</h3>
+      <h2 class="section-heading">Recent Activity</h2>
 
-        <div class="row">
-          <span>Deposit information</span>
-          <button class="secondary"
-            onclick="showPage('deposit')">Open</button>
-        </div>
-
-        <div class="row">
-          <span>Withdrawal information</span>
-          <button class="secondary"
-            onclick="showPage('withdraw')">Open</button>
-        </div>
-
-        <div class="row">
-          <span>Account activity</span>
-          <button class="secondary"
-            onclick="showPage('transactions')">Open</button>
-        </div>
+      <div class="content-card">
+        <p>No transaction activity to display.</p>
+        <button class="primary-button"
+          onclick="showPage('transactions')">
+          View Transactions
+        </button>
       </div>
     </section>
 
     <!-- DEPOSIT -->
-    <section id="deposit" hidden>
-      <h1>Deposit</h1>
-      <p class="muted">Deposit information and preview.</p>
+    <section id="deposit" class="page-section">
+      <h1 class="page-title">Deposit</h1>
 
-      <div class="card">
-        <div class="notice">
-          This is a website preview. It does not accept payments
-          or process deposits.
-        </div>
-
-        <form id="deposit-form">
-          <label for="deposit-amount">Amount</label>
-          <input id="deposit-amount" type="number"
-            min="1" step="0.01"
-            placeholder="Enter amount" required>
-
-          <label for="deposit-method">Payment method</label>
-          <select id="deposit-method">
-            <option>Bank transfer — preview</option>
-            <option>Debit card — preview</option>
-          </select>
-
-          <button class="primary" type="submit">
-            Continue
-          </button>
-        </form>
-
-        <p id="deposit-message" class="muted"
-          role="status" aria-live="polite"></p>
+      <div class="deposit-card">
+        <h2>Deposit Service</h2>
+        <p>Sorry, this service is not still available.</p>
       </div>
-
-      <button class="secondary"
-        onclick="showPage('overview')">Back to Overview</button>
     </section>
 
-    <!-- WITHDRAWAL -->
-    <section id="withdraw" hidden>
-      <h1>Withdrawal Information</h1>
-      <p class="muted">Important information about withdrawals.</p>
+    <!-- WITHDRAW -->
+    <section id="withdraw" class="page-section">
+      <h1 class="page-title">Withdraw</h1>
 
-      <div class="card">
-        <h2>We're sorry, Mrs. Nola</h2>
+      <div class="withdraw-card">
+        <span class="status">Withdrawal Information</span>
 
-        <p>
-          In this account preview, the displayed withdrawal
-          method is a debit card.
-        </p>
+        <h2>Sorry, Mrs. Nola</h2>
 
         <p>
-          For further clarification, please contact the
-          financial service provider through its official,
-          verified contact details to confirm the available
-          withdrawal methods and any applicable requirements.
+          Please confirm the available withdrawal methods
+          with your authorized financial provider before
+          proceeding.
         </p>
 
-        <div class="notice">
-          Sample account preview only. No debit card has been
-          verified, no funds are held here, and this website
-          cannot process real withdrawals.
-        </div>
+        <p style="margin-top: 12px;">
+          Use verified provider channels for debit card
+          information. Never share your PIN or pay an
+          unverified agent to unlock a withdrawal.
+        </p>
 
-        <button class="secondary"
-          onclick="showPage('overview')">Back to Overview</button>
+        <button class="primary-button"
+          onclick="showPage('overview')">
+          Back to Overview
+        </button>
       </div>
     </section>
 
     <!-- TRANSACTIONS -->
-    <section id="transactions" hidden>
-      <h1>Transactions</h1>
-      <p class="muted">Activity for this sample account preview.</p>
+    <section id="transactions" class="page-section">
+      <h1 class="page-title">Transactions</h1>
 
-      <div class="card">
-        <h3>Recent Activity</h3>
-        <p>No verified transactions are available.</p>
-        <p class="muted">
-          This website is not connected to a bank or payment
-          provider. No real deposits or withdrawals are recorded.
-        </p>
+      <div class="content-card">
+        <div class="transaction-row">
+          <div>
+            <strong>Transaction History</strong>
+            <small>Recent account activity</small>
+          </div>
+          <span>—</span>
+        </div>
+
+        <div class="empty-state">
+          No transactions available to display.
+        </div>
       </div>
-
-      <button class="secondary"
-        onclick="showPage('overview')">Back to Overview</button>
     </section>
   </main>
-</div>
 
-<footer>
-  Sample account preview · No bank connection or real-money processing
-</footer>
+  <footer>
+    Prize &amp; Account Center
+  </footer>
 
-<script>
-function showPage(page){
-  const validPages = [
-    'overview',
-    'deposit',
-    'withdraw',
-    'transactions'
-  ];
+  <script>
+    function showPage(pageId) {
+      const sections = document.querySelectorAll(".page-section");
+      const buttons = document.querySelectorAll(".menu button");
 
-  if(!validPages.includes(page)) return;
+      sections.forEach(function(section) {
+        section.classList.toggle(
+          "active",
+          section.id === pageId
+        );
+      });
 
-  document.querySelectorAll('main section').forEach(section=>{
-    section.hidden = section.id !== page;
-  });
+      buttons.forEach(function(button) {
+        button.classList.toggle(
+          "active",
+          button.dataset.page === pageId
+        );
+      });
 
-  document.querySelectorAll('nav button').forEach(button=>{
-    const active = button.dataset.page === page;
-    button.classList.toggle('active', active);
-
-    if(active){
-      button.setAttribute('aria-current','page');
-    }else{
-      button.removeAttribute('aria-current');
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
-  });
-
-  window.scrollTo({top:0,behavior:'auto'});
-}
-
-document.getElementById('deposit-form').addEventListener(
-  'submit',
-  function(event){
-    event.preventDefault();
-
-    document.getElementById('deposit-message').textContent =
-      'Preview only. No deposit was made. A verified payment ' +
-      'provider is required to accept real payments.';
-  }
-);
-
-showPage('overview');
-</script>
+  </script>
 </body>
 </html>
