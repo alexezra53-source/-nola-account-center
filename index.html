@@ -1,160 +1,29 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nola Account Center</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f3f6fb;color:#17243a}
-header{height:68px;background:#fff;border-bottom:1px solid #e3e8f0;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
-.brand{font-size:19px;font-weight:800;color:#142b4a}
-.profile{display:flex;align-items:center;gap:10px;font-size:14px}
-.avatar{width:38px;height:38px;border-radius:50%;background:#e8efff;color:#2859c5;display:grid;place-items:center;font-weight:bold}
-.layout{display:grid;grid-template-columns:225px 1fr;min-height:calc(100vh - 68px)}
-aside{background:white;border-right:1px solid #e3e8f0;padding:24px 14px}
-.menu-label{font-size:11px;color:#8490a4;letter-spacing:1px;margin:8px 12px 14px}
-nav button{width:100%;padding:14px 12px;text-align:left;border:0;border-radius:9px;background:white;color:#526078;margin-bottom:5px;font-size:14px;cursor:pointer}
-nav button:hover,nav button.active{background:#edf2ff;color:#2859c5;font-weight:700}
-main{padding:28px;max-width:1100px;width:100%;margin:0 auto}
-h1{font-size:26px;margin:0 0 8px}
-.muted{color:#6b778b;font-size:13px}
-.balance{background:linear-gradient(125deg,#17365e,#2859c5);border-radius:18px;color:white;padding:27px;margin-top:24px;box-shadow:0 10px 28px #203f761b}
-.balance-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
-.eyebrow{font-size:13px;opacity:.9}
-.account-tag{font-size:11px;border:1px solid #ffffff70;border-radius:20px;padding:7px 10px}
-.amount{font-size:clamp(35px,5vw,47px);font-weight:800;letter-spacing:-1px;margin:15px 0 20px}
-.account-meta{font-size:12px;opacity:.9}
-.actions{display:flex;gap:10px;margin-top:23px}
-.action{padding:12px 19px;border-radius:9px;font-weight:700;border:1px solid #ffffff70;cursor:pointer}
-.deposit{background:white;color:#17365e}
-.withdraw{background:#ffffff20;color:white}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
-.card,.panel,.message{background:white;border:1px solid #e2e8f0;border-radius:13px;padding:19px}
-.card strong{display:block;font-size:19px;margin-top:9px}
-.panel h2{font-size:17px;margin:0 0 14px}
-.activity{display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-top:1px solid #e7ebf2;font-size:14px}
-.page{display:none}
-.page.active{display:block}
-.message{margin-top:24px;max-width:650px;padding:26px}
-.message h1{font-size:24px;margin:14px 0}
-.message p{line-height:1.6}
-.message-icon{height:44px;width:44px;border-radius:50%;display:grid;place-items:center;background:#edf2ff;color:#2859c5;font-size:22px;font-weight:bold}
-.back{background:#142b4a;color:white;border:0;border-radius:9px;padding:12px 17px;font-weight:700;cursor:pointer;margin-top:10px}
-footer{text-align:center;color:#7c8799;font-size:11px;padding:22px}
-@media(max-width:680px){
- .layout{grid-template-columns:1fr}
- aside{padding:10px;border-right:0;border-bottom:1px solid #e3e8f0}
- .menu-label{display:none}
- nav{display:flex;gap:5px;overflow-x:auto}
- nav button{white-space:nowrap;width:auto;padding:12px 10px}
- main{padding:20px 14px}
- .balance{padding:21px;margin-top:20px}
- .cards{grid-template-columns:1fr}
- .card{padding:16px}
- .amount{font-size:36px}
- header{padding:0 15px}
- .profile-name{display:none}
-}
-</style>
-</head>
-<body>
-<header>
-  <div class="brand">Account Center</div>
-  <div class="profile">
-    <span class="profile-name">Nola Lynch</span>
-    <div class="avatar">NL</div>
-  </div>
-</header>
+<section id="withdraw" hidden>
+  <h1>Withdrawal Information</h1>
+  <p class="muted">Important information about your withdrawal.</p>
 
-<div class="layout">
-<aside>
-  <div class="menu-label">ACCOUNT MENU</div>
-  <nav>
-    <button class="active" data-page="overview" onclick="showPage('overview')">▦ &nbsp; Overview</button>
-    <button data-page="deposit" onclick="showPage('deposit')">＋ &nbsp; Deposit</button>
-    <button data-page="withdraw" onclick="showPage('withdraw')">↗ &nbsp; Withdraw</button>
-    <button data-page="transactions" onclick="showPage('transactions')">◷ &nbsp; Transactions</button>
-  </nav>
-</aside>
+  <div class="card">
+    <h2>We're sorry, Mrs. Nola</h2>
 
-<main>
-<section id="overview" class="page active">
-  <h1>Welcome, Nola</h1>
-  <p class="muted">Here is your account overview.</p>
+    <p>
+      Withdrawals in this account preview are shown as
+      available through a debit card option only.
+    </p>
 
-  <div class="balance">
-    <div class="balance-top">
-      <span class="eyebrow">Account balance</span>
-      <span class="account-tag">Personal account</span>
+    <p>
+      For assistance and further clarification, please contact
+      an authorized representative through the official
+      service provider's verified contact details.
+    </p>
+
+    <div class="notice">
+      This is a sample account preview. No debit card has been
+      verified, and no real funds or withdrawals are processed here.
     </div>
-    <div class="amount">$50,000.00</div>
-    <div class="account-meta">Account number &nbsp; •••• 2048</div>
-    <div class="actions">
-      <button class="action deposit" onclick="showPage('deposit')">＋ Deposit</button>
-      <button class="action withdraw" onclick="showPage('withdraw')">↗ Withdraw</button>
-    </div>
-  </div>
 
-  <div class="cards">
-    <div class="card"><span class="muted">Displayed balance</span><strong>$50,000.00</strong></div>
-    <div class="card"><span class="muted">Pending activity</span><strong>$0.00</strong></div>
-    <div class="card"><span class="muted">Recent transactions</span><strong>0</strong></div>
-  </div>
-
-  <div class="panel">
-    <h2>Recent activity</h2>
-    <div class="activity">
-      <div><strong>No recent activity</strong><div class="muted">Transactions will appear here.</div></div>
-      <span class="muted">—</span>
-    </div>
+    <button class="secondary" onclick="showPage('overview')">
+      Back to Overview
+    </button>
   </div>
 </section>
-
-<section id="deposit" class="page">
-  <div class="message">
-    <div class="message-icon">!</div>
-    <h1>Deposit unavailable</h1>
-    <p>You are not allowed to perform this action at this time.</p>
-    <p class="muted">Please contact the account administrator or your financial institution through its official contact channels.</p>
-    <button class="back" onclick="showPage('overview')">Back to overview</button>
-  </div>
-</section>
-
-<section id="withdraw" class="page">
-  <div class="message">
-    <div class="message-icon">i</div>
-    <h1>Withdrawal access</h1>
-    <p>Withdrawal is currently unavailable on this page. Contact your financial institution directly to confirm your account access and any applicable requirements.</p>
-    <p class="muted">Never pay unexpected fees or buy gift cards to unlock a withdrawal. Verify any access-card requirement directly with your bank.</p>
-    <button class="back" onclick="showPage('overview')">Back to overview</button>
-  </div>
-</section>
-
-<section id="transactions" class="page">
-  <div class="message">
-    <div class="message-icon">◷</div>
-    <h1>Transactions</h1>
-    <p>No recent transaction entries are available.</p>
-    <button class="back" onclick="showPage('overview')">Back to overview</button>
-  </div>
-</section>
-
-<footer>Sample account preview</footer>
-</main>
-</div>
-
-<script>
-function showPage(page){
-  document.querySelectorAll('.page').forEach(function(section){
-    section.classList.toggle('active',section.id===page);
-  });
-  document.querySelectorAll('nav button').forEach(function(button){
-    button.classList.toggle('active',button.dataset.page===page);
-  });
-  window.scrollTo(0,0);
-}
-</script>
-</body>
-</html>
