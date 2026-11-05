@@ -2,428 +2,542 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0876c9">
-  <title>Prize &amp; Account Center</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#142747">
+<title>Prize Account</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{box-sizing:border-box}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f3f7fb;
-      color: #243449;
-      min-height: 100vh;
-    }
+body{
+ margin:0;
+ font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+ background:#f3f6fb;
+ color:#17243b;
+}
 
-    header {
-      background: #0876c9;
-      color: white;
-      padding: 22px 18px;
-    }
+header{
+ background:#142747;
+ color:white;
+ padding:22px 20px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
 
-    .header-inner {
-      max-width: 900px;
-      margin: auto;
-    }
+.logo{font-size:20px;font-weight:800}
 
-    .brand {
-      font-size: 21px;
-      font-weight: 700;
-    }
+main{
+ max-width:520px;
+ margin:auto;
+ padding:25px 16px 45px;
+}
 
-    .subtitle {
-      font-size: 13px;
-      margin-top: 6px;
-      opacity: 0.9;
-    }
+.card{
+ background:white;
+ border-radius:20px;
+ padding:24px;
+ margin-bottom:18px;
+ box-shadow:0 7px 28px rgba(20,39,71,.06);
+}
 
-    .menu {
-      display: flex;
-      gap: 8px;
-      padding: 12px;
-      background: white;
-      overflow-x: auto;
-      border-bottom: 1px solid #e1e8ef;
-    }
+h1{font-size:27px;margin:0 0 10px}
+h2{font-size:21px;margin:0 0 12px}
 
-    .menu button {
-      flex: 1;
-      min-width: 85px;
-      padding: 12px 10px;
-      border: 0;
-      border-radius: 8px;
-      background: transparent;
-      color: #46576a;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-    }
+p{
+ color:#718096;
+ font-size:14px;
+ line-height:1.6;
+}
 
-    .menu button.active {
-      background: #e7f3ff;
-      color: #0876c9;
-    }
+label{
+ display:block;
+ font-size:14px;
+ font-weight:700;
+ margin:16px 0 8px;
+}
 
-    main {
-      width: 100%;
-      max-width: 900px;
-      margin: 24px auto;
-      padding: 0 16px 35px;
-    }
+input,select{
+ width:100%;
+ padding:15px;
+ border:1px solid #dce3ed;
+ border-radius:12px;
+ font-size:16px;
+ background:white;
+ color:#17243b;
+}
 
-    .page-section {
-      display: none;
-    }
+button{
+ width:100%;
+ padding:16px;
+ border:0;
+ border-radius:12px;
+ background:#315efb;
+ color:white;
+ font-size:16px;
+ font-weight:750;
+ margin-top:16px;
+ cursor:pointer;
+}
 
-    .page-section.active {
-      display: block;
-    }
+.secondary{
+ background:#edf2ff;
+ color:#315efb;
+}
 
-    .page-title {
-      font-size: 24px;
-      margin-bottom: 18px;
-    }
+.hidden{display:none!important}
 
-    .balance-card {
-      background: linear-gradient(135deg, #0876c9, #0759a6);
-      color: white;
-      border-radius: 16px;
-      padding: 25px 22px;
-      box-shadow: 0 5px 16px rgba(8, 70, 130, 0.13);
-      margin-bottom: 22px;
-    }
+.balance{
+ background:linear-gradient(135deg,#142747,#294979);
+ color:white;
+ padding:25px;
+ border-radius:16px;
+ margin:20px 0;
+}
 
-    .balance-label {
-      font-size: 15px;
-      opacity: 0.95;
-    }
+.balance small{color:#d0ddf2}
 
-    .balance-amount {
-      font-size: clamp(30px, 8vw, 40px);
-      margin-top: 12px;
-      overflow-wrap: anywhere;
-    }
+.amount{
+ font-size:36px;
+ font-weight:800;
+ margin:10px 0;
+}
 
-    .balance-note {
-      font-size: 12px;
-      margin-top: 12px;
-      opacity: 0.85;
-    }
+.row{
+ display:flex;
+ justify-content:space-between;
+ gap:12px;
+ padding:14px 0;
+ border-bottom:1px solid #e9edf3;
+ font-size:14px;
+}
 
-    .section-heading {
-      font-size: 18px;
-      margin: 25px 0 13px;
-    }
+.row span:first-child{color:#788499}
 
-    .action-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
+.status{
+ display:inline-block;
+ background:#fff0d1;
+ color:#885a00;
+ border-radius:20px;
+ padding:7px 12px;
+ font-size:11px;
+ font-weight:800;
+}
 
-    .action-card,
-    .content-card {
-      background: white;
-      border: 1px solid #e3eaf1;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(20, 45, 70, 0.04);
-    }
+.notice{
+ background:#fff5df;
+ color:#76591c;
+ padding:12px;
+ border-radius:10px;
+ font-size:12px;
+ line-height:1.5;
+}
 
-    .action-card h3 {
-      font-size: 17px;
-      margin-bottom: 8px;
-    }
+.receipt{
+ border:1px dashed #b9c4d4;
+ padding:17px;
+ border-radius:12px;
+ margin-top:20px;
+}
 
-    .action-card p,
-    .content-card p {
-      color: #617185;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .action-card button,
-    .primary-button {
-      margin-top: 16px;
-      border: 0;
-      border-radius: 8px;
-      padding: 12px 15px;
-      background: #0876c9;
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .action-card button:hover,
-    .primary-button:hover {
-      background: #075da0;
-    }
-
-    .deposit-card {
-      background: white;
-      border: 1px solid #e3eaf1;
-      border-left: 4px solid #15945a;
-      border-radius: 12px;
-      padding: 24px 20px;
-    }
-
-    .deposit-card h2,
-    .withdraw-card h2 {
-      font-size: 22px;
-      margin-bottom: 14px;
-    }
-
-    .deposit-card p,
-    .withdraw-card p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: #536579;
-    }
-
-    .withdraw-card {
-      background: white;
-      border: 1px solid #e3eaf1;
-      border-radius: 12px;
-      padding: 24px 20px;
-    }
-
-    .status {
-      display: inline-block;
-      margin-bottom: 15px;
-      padding: 7px 11px;
-      border-radius: 20px;
-      background: #fff3d8;
-      color: #855900;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .transaction-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 0;
-      border-bottom: 1px solid #e8edf2;
-    }
-
-    .transaction-row:last-child {
-      border-bottom: none;
-    }
-
-    .transaction-row strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-
-    .transaction-row small {
-      color: #718096;
-      font-size: 12px;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 25px 8px;
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    footer {
-      text-align: center;
-      color: #8290a0;
-      font-size: 12px;
-      padding: 20px 15px 30px;
-    }
-
-    @media (max-width: 480px) {
-      header {
-        padding: 20px 16px;
-      }
-
-      main {
-        margin-top: 20px;
-      }
-
-      .action-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .action-card {
-        padding: 18px;
-      }
-
-      .menu {
-        gap: 2px;
-        padding: 8px 5px;
-      }
-
-      .menu button {
-        min-width: 72px;
-        padding: 11px 7px;
-        font-size: 12px;
-      }
-    }
-  </style>
+footer{
+ text-align:center;
+ color:#8995a8;
+ font-size:12px;
+ padding:20px;
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="brand">Prize &amp; Account Center</div>
-      <div class="subtitle">Account dashboard</div>
-    </div>
-  </header>
 
-  <nav class="menu" aria-label="Main navigation">
-    <button class="active" data-page="overview"
-      onclick="showPage('overview')">Overview</button>
+<header>
+ <div class="logo">PRIZE ACCOUNT</div>
+ <div>ACCOUNT</div>
+</header>
 
-    <button data-page="deposit"
-      onclick="showPage('deposit')">Deposit</button>
+<main>
 
-    <button data-page="withdraw"
-      onclick="showPage('withdraw')">Withdraw</button>
+<div class="notice">
+This is an account interface preview. Displayed balances and transaction records are illustrative and do not represent verified funds or completed transfers.
+</div>
 
-    <button data-page="transactions"
-      onclick="showPage('transactions')">Transactions</button>
-  </nav>
+<!-- LOGIN PAGE -->
 
-  <main>
-    <!-- OVERVIEW -->
-    <section id="overview" class="page-section active">
-      <h1 class="page-title">Overview</h1>
+<section id="login" class="card">
 
-      <div class="balance-card">
-        <p class="balance-label">Main Balance</p>
-        <h2 class="balance-amount">$50,000.00</h2>
-        <p class="balance-note">Prize &amp; Account Center</p>
-      </div>
+<h1>Welcome Back</h1>
+<p>Enter your account information to continue.</p>
 
-      <h2 class="section-heading">Quick Actions</h2>
+<label>Country Code</label>
+<select id="country">
+<option value="+1">United States (+1)</option>
+<option value="+234">Nigeria (+234)</option>
+<option value="+44">United Kingdom (+44)</option>
+<option value="+61">Australia (+61)</option>
+<option value="+1">Canada (+1)</option>
+</select>
 
-      <div class="action-grid">
-        <div class="action-card">
-          <h3>Deposit</h3>
-          <p>Check the current status of deposit services.</p>
-          <button onclick="showPage('deposit')">
-            View Deposit
-          </button>
-        </div>
+<label>Phone Number</label>
+<input id="phone" type="tel" placeholder="Enter phone number">
 
-        <div class="action-card">
-          <h3>Withdraw</h3>
-          <p>View withdrawal information and guidance.</p>
-          <button onclick="showPage('withdraw')">
-            View Withdraw
-          </button>
-        </div>
-      </div>
+<label>Password</label>
+<input id="password" type="password" placeholder="Enter password">
 
-      <h2 class="section-heading">Recent Activity</h2>
+<label style="font-weight:400">
+<input type="checkbox" style="width:auto" onclick="togglePassword()">
+Show password
+</label>
 
-      <div class="content-card">
-        <p>No transaction activity to display.</p>
-        <button class="primary-button"
-          onclick="showPage('transactions')">
-          View Transactions
-        </button>
-      </div>
-    </section>
+<button onclick="login()">Login</button>
 
-    <!-- DEPOSIT -->
-    <section id="deposit" class="page-section">
-      <h1 class="page-title">Deposit</h1>
+<div id="loginError"></div>
 
-      <div class="deposit-card">
-        <h2>Deposit Service</h2>
-        <p>Sorry, this service is not still available.</p>
-      </div>
-    </section>
+</section>
 
-    <!-- WITHDRAW -->
-    <section id="withdraw" class="page-section">
-      <h1 class="page-title">Withdraw</h1>
+<!-- DASHBOARD -->
 
-      <div class="withdraw-card">
-        <span class="status">Withdrawal Information</span>
+<section id="dashboard" class="hidden">
 
-        <h2>Sorry, Mrs. Nola</h2>
+<div class="card">
 
-        <p>
-          Please confirm the available withdrawal methods
-          with your authorized financial provider before
-          proceeding.
-        </p>
+<h1>Account Dashboard</h1>
+<p>Welcome to your account overview.</p>
 
-        <p style="margin-top: 12px;">
-          Use verified provider channels for debit card
-          information. Never share your PIN or pay an
-          unverified agent to unlock a withdrawal.
-        </p>
+<div class="balance">
+<small>Illustrative Account Balance</small>
+<div class="amount">$50,000.00</div>
+<small>Displayed amount — not verified funds</small>
+</div>
 
-        <button class="primary-button"
-          onclick="showPage('overview')">
-          Back to Overview
-        </button>
-      </div>
-    </section>
+<div class="row">
+<span>Account Holder</span>
+<strong>Sample Recipient</strong>
+</div>
 
-    <!-- TRANSACTIONS -->
-    <section id="transactions" class="page-section">
-      <h1 class="page-title">Transactions</h1>
+<div class="row">
+<span>Account Status</span>
+<strong>Interface Preview</strong>
+</div>
 
-      <div class="content-card">
-        <div class="transaction-row">
-          <div>
-            <strong>Transaction History</strong>
-            <small>Recent account activity</small>
-          </div>
-          <span>—</span>
-        </div>
+<button onclick="show('withdraw')">
+Withdrawal
+</button>
 
-        <div class="empty-state">
-          No transactions available to display.
-        </div>
-      </div>
-    </section>
-  </main>
+<button class="secondary" onclick="show('deposit')">
+Deposit
+</button>
 
-  <footer>
-    Prize &amp; Account Center
-  </footer>
+<button class="secondary" onclick="show('activity')">
+Transaction Activity
+</button>
 
-  <script>
-    function showPage(pageId) {
-      const sections = document.querySelectorAll(".page-section");
-      const buttons = document.querySelectorAll(".menu button");
+</div>
+</section>
 
-      sections.forEach(function(section) {
-        section.classList.toggle(
-          "active",
-          section.id === pageId
-        );
-      });
+<!-- WITHDRAWAL PAGE -->
 
-      buttons.forEach(function(button) {
-        button.classList.toggle(
-          "active",
-          button.dataset.page === pageId
-        );
-      });
+<section id="withdraw" class="hidden card">
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-  </script>
+<h2>Withdrawal Details</h2>
+
+<p>Enter fictional recipient information to preview the withdrawal process.</p>
+
+<label>Recipient Name</label>
+<input id="recipient" placeholder="Recipient full name">
+
+<label>Bank Name</label>
+<select id="bank">
+<option value="">Select Bank</option>
+<option>Sample National Bank</option>
+<option>Demo Community Bank</option>
+<option>Test Commercial Bank</option>
+</select>
+
+<label>Test Account Reference</label>
+<input id="account" placeholder="TEST-000000">
+
+<label>Amount</label>
+<input value="$50,000.00" readonly>
+
+<button onclick="makePayment()">
+Make Payment
+</button>
+
+<button class="secondary" onclick="show('dashboard')">
+Back to Dashboard
+</button>
+
+</section>
+
+<!-- PAYMENT SUMMARY -->
+
+<section id="payment" class="hidden card">
+
+<h2>Payment Summary</h2>
+
+<p>Transaction preview and submitted test details.</p>
+
+<div class="row">
+<span>Payment Amount</span>
+<strong>$50,000.00</strong>
+</div>
+
+<div class="row">
+<span>Recipient</span>
+<strong id="receiptName"></strong>
+</div>
+
+<div class="row">
+<span>Bank</span>
+<strong id="receiptBank"></strong>
+</div>
+
+<div class="row">
+<span>Reference</span>
+<strong>DEMO-50000</strong>
+</div>
+
+<div class="row">
+<span>Payment Status</span>
+<span class="status">SIMULATED</span>
+</div>
+
+<div class="receipt">
+
+<h3>Transaction Receipt</h3>
+
+<div class="row">
+<span>Amount</span>
+<strong>$50,000.00</strong>
+</div>
+
+<div class="row">
+<span>Recipient</span>
+<strong id="receiptName2"></strong>
+</div>
+
+<div class="row">
+<span>Reference</span>
+<strong>DEMO-50000</strong>
+</div>
+
+<p>This receipt is illustrative and is not proof of a bank transfer.</p>
+
+</div>
+
+<p>Your payment preview is ready. No bank transfer has been initiated.</p>
+
+<button onclick="show('verification')">
+Continue
+</button>
+
+<button class="secondary" onclick="show('dashboard')">
+Dashboard
+</button>
+
+</section>
+
+<!-- VERIFICATION PAGE -->
+
+<section id="verification" class="hidden card">
+
+<h2>Transaction Reference</h2>
+
+<p>
+Enter an eight-digit demonstration reference to preview the final screen. Use a made-up number only.
+</p>
+
+<label>8-Digit Demo Reference</label>
+
+<input
+id="reference"
+maxlength="8"
+inputmode="numeric"
+placeholder="12345678"
+>
+
+<div id="referenceError"></div>
+
+<button onclick="verify()">
+Continue
+</button>
+
+<p>
+If you have not received a legitimate transaction reference, contact the payment provider or administration for assistance.
+</p>
+
+<button class="secondary" onclick="show('payment')">
+Back
+</button>
+
+</section>
+
+<!-- COMPLETION PAGE -->
+
+<section id="complete" class="hidden card">
+
+<h2>Transaction Journey Complete</h2>
+
+<span class="status">NO PAYMENT MADE</span>
+
+<p>
+The sample journey has been completed. No money was transferred and no banking security credentials were collected.
+</p>
+
+<button onclick="show('dashboard')">
+Return to Dashboard
+</button>
+
+</section>
+
+<!-- DEPOSIT PAGE -->
+
+<section id="deposit" class="hidden card">
+
+<h2>Deposit Service</h2>
+
+<p>
+This service is currently unavailable, or you are not currently authorized to use this service. Please contact the administration for further assistance.
+</p>
+
+<button onclick="show('dashboard')">
+Back to Dashboard
+</button>
+
+</section>
+
+<!-- ACTIVITY PAGE -->
+
+<section id="activity" class="hidden card">
+
+<h2>Transaction Activity</h2>
+
+<div class="row">
+<span>Withdrawal Preview</span>
+<strong>Not Submitted</strong>
+</div>
+
+<div class="row">
+<span>Displayed Amount</span>
+<strong>$50,000.00</strong>
+</div>
+
+<div class="row">
+<span>Reference</span>
+<strong>DEMO-50000</strong>
+</div>
+
+<button onclick="show('dashboard')">
+Back to Dashboard
+</button>
+
+</section>
+
+</main>
+
+<footer>
+Prize Account · Account Interface
+</footer>
+
+<script>
+
+function show(id){
+
+ document.querySelectorAll('main section').forEach(section=>{
+  section.classList.add('hidden');
+ });
+
+ document.getElementById(id).classList.remove('hidden');
+
+ window.scrollTo({
+  top:0,
+  behavior:'smooth'
+ });
+
+}
+
+function togglePassword(){
+
+ let password=document.getElementById('password');
+
+ password.type=
+ password.type==='password'?'text':'password';
+
+}
+
+function login(){
+
+ let phone=document.getElementById('phone').value.trim();
+
+ let password=document.getElementById('password').value;
+
+ let error=document.getElementById('loginError');
+
+ if(!phone || !password){
+
+  error.textContent='Please enter your phone number and password.';
+
+  error.style.color='red';
+
+  return;
+
+ }
+
+ show('dashboard');
+
+}
+
+function makePayment(){
+
+ let name=document.getElementById('recipient').value.trim();
+
+ let bank=document.getElementById('bank').value;
+
+ let account=document.getElementById('account').value.trim();
+
+ if(!name || !bank || !account){
+
+  alert('Please complete all recipient test fields.');
+
+  return;
+
+ }
+
+ document.getElementById('receiptName').textContent=name;
+
+ document.getElementById('receiptName2').textContent=name;
+
+ document.getElementById('receiptBank').textContent=bank;
+
+ show('payment');
+
+}
+
+function verify(){
+
+ let code=document.getElementById('reference').value;
+
+ let error=document.getElementById('referenceError');
+
+ if(!/^\d{8}$/.test(code)){
+
+  error.textContent='Please enter exactly eight digits.';
+
+  error.style.color='red';
+
+  return;
+
+ }
+
+ error.textContent='';
+
+ show('complete');
+
+}
+
+</script>
+
 </body>
 </html>
